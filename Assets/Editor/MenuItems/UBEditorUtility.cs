@@ -9,18 +9,26 @@ using UnityEngine.Rendering;
 using System.Resources;
 using UnityEngine.U2D;
 using System.Text;
+using UnityEngine.Tilemaps;
+
 
 public class UBEditorUtility
 {
-	const string PATH = "Tools/";
+	const string PATH = "Mein Menu/";
 	const string FINDASSETS = "Find all assets of type /";
 	const int consoleFontSize = 11;
 	//15
 
-	[MenuItem (PATH + "Unload Unused Assets", false, 1114)]
+	[MenuItem (PATH + "Unload Unused Assets", false, 14)]
 	static void MethodInMenu1 ()
 	{		
 		Resources.UnloadUnusedAssets ();
+	}
+
+	[MenuItem (PATH + "Delete All Keys", false, 9999)]
+	static void DeleteAllKeys ()
+	{
+		PlayerPrefs.DeleteAll ();
 	}
 
 
@@ -155,13 +163,19 @@ public class UBEditorUtility
 		FindAssetsInMemory (typeof(Mesh));
 	}
 
-	[MenuItem (PATH + FINDASSETS + "Sprite", false, 16)]
+	[MenuItem (PATH + FINDASSETS + "2D/Sprite", false, 16)]
 	static void FindSprite ()
 	{
 		FindAssetsInMemory (typeof(Sprite));
 	}
 
-	[MenuItem (PATH + FINDASSETS + "SpriteAtlas", false, 16)]
+	[MenuItem (PATH + FINDASSETS + "2D/Tile", false, 16)]
+	static void FindTile ()
+	{
+		FindAssetsInMemory (typeof(Tile));
+	}
+
+	[MenuItem (PATH + FINDASSETS + "2D/SpriteAtlas", false, 16)]
 	static void FindSpriteAtlas ()
 	{
 		FindAssetsInMemory (typeof(SpriteAtlas));
@@ -267,10 +281,12 @@ public class UBEditorUtility
 
 		foreach (var item in foundAssets) {
 			string pathToAsset = UnityEditor.AssetDatabase.GetAssetPath (item);
-			if (item.hideFlags == HideFlags.None && !pathToAsset.Equals ("") || pathToAsset.StartsWith ("Assets/") || item.hideFlags == HideFlags.None && IsAsset (item.GetType ()))
+            if (item.hideFlags == HideFlags.None && pathToAsset.Equals(""))
+                sceneMemoryInProfiler.Add(item);
+            else if (item.hideFlags == HideFlags.None && !pathToAsset.Equals ("") || pathToAsset.StartsWith ("Assets/") || item.hideFlags == HideFlags.None && IsAsset (item.GetType ()))
 				assetsInProfilerInAssetFolder.Add (item);
-			else if (item.hideFlags == HideFlags.None && pathToAsset.Equals (""))
-				sceneMemoryInProfiler.Add (item);
+			
+
 			else if (item.hideFlags == HideFlags.NotEditable)//&& pathToAsset.StartsWith ("Resources/")
 				assetsInProfilerInUnityEditorResources.Add (item);
 			else if ((item.hideFlags & HideFlags.HideInInspector) != HideFlags.HideInInspector && pathToAsset.Equals (""))
@@ -363,7 +379,44 @@ public class UBEditorUtility
 
 	#endregion
 
+	#region Remove empty folders
 
+	//http://www.tallior.com/remove-empty-folders-in-unity/ //	https://gist.github.com/liortal53/780075ddb17f9306ae32
+	/// <summary> /// Use this flag to simulate a run, before really deleting any folders. /// </summary>
+	private static bool dryRun = false;
+
+	[MenuItem ("Mein Menu/Folders/Remove empty folders", false, 56)]
+	private static void RemoveEmptyFoldersMenuItem ()
+	{
+		var index = Application.dataPath.IndexOf ("/Assets");
+		var projectSubfolders = Directory.GetDirectories (Application.dataPath, "*", SearchOption.AllDirectories);
+		// Create a list of all the empty subfolders under Assets.
+		var emptyFolders = projectSubfolders.Where (path => IsEmptyRecursive (path)).ToArray ();
+		foreach (var folder in emptyFolders) {
+			// Verify that the folder exists (may have been already removed).
+			if (Directory.Exists (folder)) {
+				Debug.Log ("<color=#CD1426FF>" + "Deleting : " + folder + "</color>");
+				if (!dryRun) {
+					// Remove dir (recursively)
+					Directory.Delete (folder, true);
+					// Sync AssetDatabase with the delete operation.
+					AssetDatabase.DeleteAsset (folder.Substring (index + 1));
+				}
+			}
+		}
+		// Refresh the asset database once we're done.
+		AssetDatabase.Refresh ();
+	}
+
+	/// <summary> /// A helper method for determining if a folder is empty or not. /// </summary>
+	private static bool IsEmptyRecursive (string path)
+	{
+		// A folder is empty if it (and all its subdirs) have no files (ignore .meta files)
+		return Directory.GetFiles (path).Where (file => !file.EndsWith (".meta")).Count () == 0
+		&& Directory.GetDirectories (path, "*", SearchOption.AllDirectories).All (IsEmptyRecursive);
+	}
+
+	#endregion
 
 	#region Opening folders
 
