@@ -23,10 +23,10 @@ public class GroupUtility
 			group.transform.position = pivotPosition;
 
 			// register undo as we parent objects into the group
-//			Undo.RegisterCreatedObjectUndo (group, "Group");
-//			foreach (GameObject s in Selection.gameObjects) {
-//				Undo.SetTransformParent (s.transform, group.transform, "Group");
-//			}
+			Undo.RegisterCreatedObjectUndo (group, "Group");
+			foreach (GameObject s in Selection.gameObjects) {
+				Undo.SetTransformParent (s.transform, group.transform, "Group");
+			}
 
 			Selection.activeGameObject = group;
 		} else {
