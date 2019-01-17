@@ -29,24 +29,7 @@ public static class DataManager
 		return (T)System.Convert.ChangeType (null, typeof(T));
 	}
 
-	#region MyRegion
-
-
-	//	public static T LoadFromJsonOver<T> (string valuesToOverrid, Object toOreride)
-	//	{
-	////		Debug.Log ("LoadOver");
-	////		string filePath = Path.Combine (Application.streamingAssetsPath, relativePath);
-	////		if (!string.IsNullOrEmpty (filePath)) {
-	////			string dataAsJson = File.ReadAllText (filePath);
-	//
-	//			//	JsonUtility.FromJsonOverwrite (dataAsJson,);
-	//
-	//			//	T datas = JsonUtility.FromJson<T> (dataAsJson);
-	//			//return (T)System.Convert.ChangeType (datas, typeof(T));
-	//		}
-	//		return (T)System.Convert.ChangeType (null, typeof(T));
-	//	}
-	#endregion
+	
 
 	//https://www.codeproject.com/Articles/483055/XML-Serialization-and-Deserialization-Part
 	public static T LoadFromXML<T> (string absolutePath)
