@@ -153,39 +153,16 @@ namespace UB.TypeCounter
 
 			string[] dllsUnityEngine = GetUnityEngineAssemblysNames ();
 
-			//foreach (var item in dllsUnityEngine) {			
-			//	Assembly assembly = Assembly.Load (item);
+
 			Assembly a = typeof(GUI).Assembly;
 
 			GetCertainTypes (a, ref classesRoots, a.GetName ().Name, IsClassAndNotAsset, IsNOTInheriteFromScriptableObject, IsNOTComponent, IsNOTAttibute, IsNOTYieldInstruction);
-			//GetCertainTypes (a, ref classesRoots, a.GetName ().Name, IsClassAndNotAsset, IsNOTInheriteFromScriptableObject, IsNOTComponent, IsNOTAttibute, IsEditorGUI);
 
-			//	GetCertainTypes (assembly, ref classes, "Class: ", IsClassAndNotAsset, IsNOTInheriteFromScriptableObject, IsNOTComponent);
-			//	GetCertainTypes (assembly, ref components, "components: ", IsClassAndNotAsset, IsNOTInheriteFromScriptableObject, IsComponent);
-			//GetCertainTypes (assembly, ref atributes, "atributes: ", IsClassAndNotAsset, IsNOTInheriteFromScriptableObject, IsAttibute);
-
-			//	}
 			GetResults ("Classes Roots", classesRoots);
-			//	GetResults ("Classes", classes);
-//		GetResults ("components", components);
-			//	GetResults ("atributes", atributes);
 
 		}
 
-		//	else if (IsClassAndNotAsset (type) && !type.BaseType.Name.Contains ("Exception")) {
-		//		if (type.BaseType.Name.Contains ("Object") && type.BaseType.Namespace.Contains ("System") && type.Name.Contains ("Importer") && type.Name.Contains ("Settings")) {
-		//			notAssetsCSettings.Add (string.Format ("{0}{1}{2}{3}", "Not AssetSSSSett: ", ChangeColor (type), type.Name, colors [5]));
-		//		} else if (type.BaseType.Name.Contains ("Object") && type.BaseType.Namespace.Contains ("System")) {
-		//			notAssetsC.Add (string.Format ("{0}{1}{2}{3}", "Class: ", ChangeColor (type), type.Name, colors [5]));
-		//
-		//		} else {
-		//			notAssetsCWH.Add (string.Format ("{0}{1}{2}{3}", "Not Asset: ", ChangeColor (type), type.Name, colors [5]));//+ "   " + type.BaseType.Namespace + "." + type.BaseType.Name
-		//		}
-		//	} else if (IsStructAndNotAsset (type)) {
-		//		notAssetsS.Add (string.Format ("{0}{1}{2}{3}", "Struct: ", ChangeColor (type), type.Name, colors [5]));// + type.BaseType.Namespace
-		//	} else if (IsInterfaceAndNotAsset (type)) {
-		//		notAssetsI.Add (string.Format ("{0}{1}{2}{3}", "Interface: ", ChangeColor (type), type.Name, colors [5]));
-		//	}
+
 
 		#region GetSomething
 
@@ -514,8 +491,6 @@ namespace UB.TypeCounter
 		{
 			return type.IsPublic;
 
-			//	&& typeof(Attribute).IsAssignableFrom (t)
-			//	&& !t.IsDefined (typeof(ObsoleteAttribute), true);XXXXXX
 		}
 
 		internal  static bool IsAttibute (Type type)
@@ -554,9 +529,6 @@ namespace UB.TypeCounter
 			&& type.Name != "Editor"
 			&& type.Name != "EditorWindow"
 
-
-			//&& type.IsSealed
-			// &&!type.IsSubclassOf(typeof(UnityEngine.ScriptableObject))
 			);
 		}
 
@@ -584,8 +556,6 @@ namespace UB.TypeCounter
 			&& type.Name != "EditorWindow"
 			&& type.Name != "Editor"
 
-			//&& type.IsSealed
-			// &&!type.IsSubclassOf(typeof(UnityEngine.ScriptableObject))
 			);
 		}
 
@@ -599,7 +569,7 @@ namespace UB.TypeCounter
 			return (
 			    type.IsSubclassOf (typeof(UnityEditor.EditorWindow))
 			    || typeof(EditorWindow).Equals (type)
-			    // || type.Name == "EditorWindow"
+
 			);
 		}
 
@@ -613,7 +583,7 @@ namespace UB.TypeCounter
 			return (
 			    type.IsSubclassOf (typeof(UnityEditor.Editor))
 			    || typeof(Editor).Equals (type)
-			    // || type.Name == "Editor"
+
 			);
 		}
 
@@ -627,7 +597,7 @@ namespace UB.TypeCounter
 			return ((type.IsSubclassOf (typeof(UnityEngine.Component))
 			|| type.IsSubclassOf (typeof(UnityEngine.MonoBehaviour)))
 			&& type.Name != "Component"
-			// &&!type.IsSubclassOf(typeof(UnityEngine.ScriptableObject))
+
 			);
 		}
 
@@ -752,8 +722,7 @@ namespace UB.TypeCounter
 				XmlNode root = doc.AppendChild (ClassHierarchy);
 				XmlNode mObject = doc.CreateElement ("Object");
 				root.AppendChild (mObject);
-//			XmlNode mmObject = doc.CreateElement ("Object");
-//			mmObject.AppendChild (mmObject);
+
 				foreach (var itemaa in s1) {
 					AddNode (itemaa, ref doc, mObject);//mm
 				}
@@ -800,7 +769,7 @@ namespace UB.TypeCounter
 		}
 
 		static void GetResults (string Name, List<string> listName)
-		{			//Debug.Log (string.Format ("{0}{1}{2}{3}", "", ChangeColor (type), type.Name, colors [5]));
+		{			
 			if (listName.Count == 0)
 				return;
 
