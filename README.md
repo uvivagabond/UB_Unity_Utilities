@@ -13,6 +13,7 @@ PropertyDrawer for Matrix4x4.
 * [EditorWindow styles](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/EditorStyleWindow.cs) 
  
 In this window we can see how styles look from below class.
+  
 https://docs.unity3d.com/ScriptReference/EditorStyles.html
  
  
@@ -22,6 +23,7 @@ https://docs.unity3d.com/ScriptReference/EditorStyles.html
 
 * [Hierarchy Separators](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/AddHierarchySeparator.cs) 
 * [Hierarchy Separators – Group](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/GroupUtility.cs) 
+    
 Few separators to make Hierarchy window more readable
  
  
@@ -38,6 +40,7 @@ With this extention we can find classes and structures which use chosen type. Ha
  
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/where%20we%20use%20type%20Collider.png)
 * [Method & Property & Field Printer](https://github.com/uvivagabond/UB_Unity_Utilities/tree/master/Assets/Editor/MenuItems/TypeCounter) 
+    
  We can diplay in console all methods, properties and field with parameter and return type. 
       
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/all%20methods%20properties%20in.png)
@@ -49,11 +52,13 @@ With this extention we can find classes and structures which use chosen type. Ha
 
   
 We can display all types which inherite from chosen type. Handy when we want understand inheritance and relations between classes.
+   
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/GetInfoAbout.png)
   
 
   
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/GetInfo%20About%20SO.png)
+    
 Also we can see which classes are deprecated or experimental.  Grey classes are deprecated, violet classes are experimental.       
   
 * [Opening special folders](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/UBEditorUtility.cs) 
