@@ -105,14 +105,14 @@ public static class TagNameCreator
 	static string GetIDOfLayers ()
 	{
 		var builder = new StringBuilder ();
-		builder.AppendLine ("public enum IDOfLayer");
+		builder.AppendLine ("public static class IDOfLayer");
 		builder.AppendLine ("{");
 
 		int ID = 0, i = 0;				
 		foreach (var n in InternalEditorUtility.layers.Select(c => new { var = RemoveInvalidChars(c), val = c })) {
 			ID = (i < 5) ? ((i < 3) ? i : i + 1) : i + 3;
 		
-			builder.Append ("\t").AppendFormat (@"{0} = {1},", n.var, ID).AppendLine ();
+			builder.Append ("\t").AppendFormat (@"public const int {0} = {1};", n.var, ID).AppendLine ();
 			if (i == 4) {
 				builder.AppendLine ();
 			}
@@ -175,17 +175,16 @@ public static class TagNameCreator
 	{
 		var builder = new StringBuilder ();
 		builder.AppendLine ("using System;\n");
-		builder.AppendLine ("[Flags]");
-		builder.AppendLine ("public enum LayersForMask");
+		builder.AppendLine ("public static class LayersForMask");
 		builder.AppendLine ("{");
-		builder.AppendLine ("\tEverything = -1,");
-		builder.AppendLine ("\tNothing = 0,");
+		builder.AppendLine ("\tpublic const int Everything = -1;");
+		builder.AppendLine ("\tpublic const int Nothing = 0;");
 
 		int ID = 0, i = 0;				
 		foreach (var n in InternalEditorUtility.layers.Select(c => new { var = RemoveInvalidChars(c), val = c })) {
 			ID = (i < 5) ? ((i < 3) ? i : i + 1) : i + 3;
+			builder.Append ("\t").AppendFormat (@"public const int {0}  = 1<<{1};", n.var, ID).AppendLine ();
 
-			builder.Append ("\t").AppendFormat (@"{0} = 1<<{1},", n.var, ID).AppendLine ();
 			if (i == 4) {
 				builder.AppendLine ();
 			}
