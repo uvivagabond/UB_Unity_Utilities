@@ -33,28 +33,33 @@ Few separators to make Hierarchy window more readable
 * [Where we use type / Type finder](https://github.com/uvivagabond/UB_Unity_Utilities/tree/master/Assets/Editor/MenuItems/TypeCounter) 
  
 With this extention we can find classes and structures which use chosen type. Handy when we don't understand why type exist.
+  
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/where%20we%20use%20type.png)
  
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/where%20we%20use%20type%20Collider.png)
 * [Method & Property & Field Printer](https://github.com/uvivagabond/UB_Unity_Utilities/tree/master/Assets/Editor/MenuItems/TypeCounter) 
  We can diplay in console all methods, properties and field with parameter and return type. 
+      
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/all%20methods%20properties%20in.png)
    
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/all%20methods%20properties%20in%20Animator.png)
 
    
-* [Get info about...]
+* [Get info about...](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/TypeCounter/TypeCounter.cs) 
+
+  
 We can display all types which inherite from chosen type. Handy when we want understand inheritance and relations between classes.
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/GetInfoAbout.png)
   
-Also we can see which classes are deprecated or experimental.
+
   
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/GetInfo%20About%20SO.png)
-       
-
+Also we can see which classes are deprecated or experimental.  Grey classes are deprecated, violet classes are experimental.       
+  
 * [Opening special folders](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/UBEditorUtility.cs) 
-
+  
 We can open special folders with menu items.
+   
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/folders%20open.png)
 * [Find all assets of type](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/UBEditorUtility.cs) 
 
@@ -66,10 +71,12 @@ In the Object category there are all types that do not have their own option in 
 
 ## My versions of other people solutions
 
-* [Creator of names for Tags/Layers/VirtualAxis/Scenes in Build/ Buildin Colors](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/TagNameCreator.cs) 
+* [Creator of names for Tags/Layers/VirtualAxis/Scenes in Build/ Buildin Colors](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/TagNameCreator.cs)  
+  
 We can create constants with names of different Layers, Tags etc..
    
 * [Print names of Attributes](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/TagNameCreator.cs) 
+  
 We can write to console all atttributes names.
   
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/print%20all%20names%20of%20attributes.png)
@@ -77,6 +84,11 @@ We can write to console all atttributes names.
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/attributes.png)
    
 * [Missing reference finder](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/missing%20reference.png)
+  
 We can in which scripts we don't add references.
 
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/missing%20reference.png)
+
+
+
+
