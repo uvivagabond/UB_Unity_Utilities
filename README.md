@@ -66,13 +66,17 @@ Also we can see which classes are deprecated or experimental.  Grey classes are 
 We can open special folders with menu items.
    
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/folders%20open.png)
+
+   
 * [Find all assets of type](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/UBEditorUtility.cs) 
 
 We can find all object of chosen type in memory. (It work similar to Profiler → Memory Tab → Detailed)
 In the Object category there are all types that do not have their own option in the menu. 
-
+   
+![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/Find%20all%20objects%20of%20type%20list.png)
+   
 ![Logo](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/README%20Pictures/find%20all%20objects%20of%20type.png)
-
+ 
 
 ## My versions of other people solutions
 
