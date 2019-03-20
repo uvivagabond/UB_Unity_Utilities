@@ -61,7 +61,7 @@ We can display all types which inherite from chosen type. Handy when we want und
     
 Also we can see which classes are deprecated or experimental.  Grey classes are deprecated, violet classes are experimental.       
   
-* [Opening special folders](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/UBEditorUtility.cs) 
+* [Opening special folders](https://github.com/uvivagabond/UB_Unity_Utilities/blob/master/Assets/Editor/MenuItems/UBFolderUtility.cs) 
   
 We can open special folders with menu items.
    
